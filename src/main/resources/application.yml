@@ -1,12 +1,23 @@
 spring:
   flyway:
-    enabled: false
+    enabled: true
 
-  autoconfigure:
-    exclude:
-      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
-      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
-      - org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+  datasource:
+    driver-class-name: 'org.postgresql.Driver'
+#    url: 'jdbc:postgresql://localhost:5432/heroku'
+    url: 'jdbc:postgresql://ec2-54-167-168-52.compute-1.amazonaws.com:5432/d8q2di1kel45da'
+    username: 'curplwctjamdvi'
+    password: 'f9183465435b76dc51b675580869e6b856e64014419fc0de45c1c42b2f08a361'
+#    username: 'postgres'
+#    password: '1'
 
+  jpa:
+    hibernate:
+      ddl-auto: none
+#      database: postgres
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
 server:
   port: 8888
